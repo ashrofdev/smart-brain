@@ -10,6 +10,14 @@ class Register extends React.Component {
     }
   }
 
+  componentDidMount(){
+    fetch('https://cryptic-cliffs-40445.herokuapp.com/users').then((response)=>{
+        return response.json()
+    }).then((data)=>{
+        console.log(data)
+    })
+  }
+
   onNameChange = (event) => {
     this.setState({name: event.target.value})
   }
@@ -23,7 +31,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('https://cryptic-cliffs-40445.herokuapp.com/register', {
+    fetch('https://secret-earth-50380.herokuapp.com/register', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
